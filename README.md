@@ -35,6 +35,12 @@ Running the above command will fetch the pretrained models. We provide 2 pretrai
 
 Moreover, the command will fetch the neutral SMPL model from the [Unite the People repository](https://github.com/classner/up). The model falls under the SMPLify license. If you find this model useful for your research, please follow the [corresponding citing insturctions](https://github.com/classner/up/tree/master/3dfit/README.md).
 
+## Run demo using docker
+
+```sh
+nvidia-docker run -v $(pwd):/work -w /work chaneyk/graphcmr python demo.py --checkpoint=data/models/model_checkpoint_h36m_up3d_extra2d.pt --img=examples/im1010.jpg --bbox=examples/im1010_bbox.json
+```
+
 ## Run demo code
 To run our method, you need a bounding box around the person. The person needs to be centered inside the bounding box and the bounding box should be relatively tight. You can either supply the bounding box directly or provide an [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose) detection file. In the latter case we infer the bounding box from the detections.
 
